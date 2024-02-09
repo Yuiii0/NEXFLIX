@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import Home from "./Pages/Home";
 import Search from "./Pages/Search";
 import TV from "./Pages/TV";
@@ -10,6 +9,7 @@ function App() {
     <Routes>
       <Route element={<DefaultLayout />}>
         <Route path="/" element={<Home />}></Route>
+        <Route path="/movies/:movieId" element={<Home />}></Route>
         <Route path="/tv" element={<TV />}></Route>
         <Route path="/search" element={<Search />}></Route>
       </Route>
