@@ -23,6 +23,7 @@ export type MovieInDetail = {
   genres: any[];
   homepage: string;
   id: number;
+  release_date: string;
   imdb_id: string;
   original_language: string;
   original_title: string;
@@ -31,4 +32,5 @@ export type MovieInDetail = {
   poster_path: string;
   production_companies: any[];
   production_contries: any[];
+  vote_average: number;
 };

@@ -5,6 +5,7 @@ import { PathMatch, useMatch, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import api from "../../api/api";
 import { makeImagePath } from "../../utils/utils";
+import Movie from "./components/Movie";
 
 const MovieListVariants = {
   hidden: {
@@ -17,7 +18,7 @@ const MovieListVariants = {
     x: -window.outerWidth - 5,
   },
 };
-const offset = 6;
+const offset = 5;
 
 const MovieItemVariants = {
   normal: {
@@ -64,7 +65,7 @@ function Home() {
     if (movies) {
       if (leaving) return;
       toggleLeaving();
-      const totalMovies = movies.length - 2;
+      const totalMovies = movies.length;
       const maxIndex = Math.ceil(totalMovies / offset) - 1;
       setIndex((prev) => (prev === maxIndex ? 0 : prev + 1));
     }
@@ -129,21 +130,7 @@ function Home() {
             />
             {selectedMovie && (
               <MovieDetail layoutId={moviePathMatch.params.movieId}>
-                <MovieImg
-                  style={{
-                    backgroundImage: `linear-gradient(to top, black, transparent), url(${makeImagePath(
-                      selectedMovie.backdrop_path,
-                      "w500"
-                    )})`,
-                  }}
-                />
-                <MovieTitle>{selectedMovie.title}</MovieTitle>
-                <MovieReleaseDate>
-                  {selectedMovie.release_date}
-                </MovieReleaseDate>
-                <MovieRating>{selectedMovie.popularity}</MovieRating>
-
-                <MovieOverView>{selectedMovie.overview}</MovieOverView>
+                <Movie movieId={movieId || ""}></Movie>
               </MovieDetail>
             )}
           </>
@@ -189,8 +176,8 @@ const Slider = styled.div`
 `;
 const MovieList = styled(motion.div)`
   display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(6, 1fr);
+  gap: 15px;
+  grid-template-columns: repeat(5, 1fr);
   position: absolute;
   width: 100%;
 `;
@@ -228,7 +215,7 @@ const Overlay = styled(motion.div)`
 
 const MovieDetail = styled(motion.div)`
   position: fixed;
-  width: 40vw;
+  width: 35vw;
   background-color: ${(props) => props.theme.black.lighter};
   color: white;
   height: 80vh;
@@ -239,23 +226,3 @@ const MovieDetail = styled(motion.div)`
   border-radius: 16px;
   overflow: hidden;
 `;
-const MovieImg = styled.div`
-  width: 100%;
-  background-size: cover;
-  background-position: center center;
-  height: 400px;
-`;
-const MovieTitle = styled.h2`
-  color: ${(props) => props.theme.white.lighter};
-  font-size: 28px;
-  padding: 20px;
-  position: relative;
-  top: -60px;
-`;
-const MovieOverView = styled.p`
-  padding: 20px;
-  color: ${(props) => props.theme.white.lighter};
-  position: relative;
-`;
-const MovieReleaseDate = styled.p``;
-const MovieRating = styled.p``;
