@@ -1,4 +1,4 @@
-![alt text](image.png)
+![alt text](/public/readme_img/image.png)
 
 ## 📌 사용 기술 스택
 
@@ -16,7 +16,7 @@
 
 ### Login Page
 
-![alt text](Login.gif)
+![alt text](/public/readme_img/Login.gif)
 
 아이디 : id
 
@@ -26,13 +26,13 @@
 
 ### Home Page
 
-![alt text](Home.gif)
+![alt text](/public/readme_img/Home.gif)
 
 👉🏻 로그인 후 , 접속가능한 홈페이지로써 영화 클릭시, 상세정보 확인 가능합니다.
 
 📌 React Query: 영화 정보들을 fetch하며 캐시 가능합니다.
 
-![alt text](MyPage_LikedMovie.gif)
+![alt text](/public/readme_img/MyPage_LikedMovie.gif)
 
 👉🏻 좋아요 버튼 기능 구현 , 마이페이지에서 좋아요한 영화를 확인해 볼 수 있습니다.
 
@@ -40,7 +40,7 @@
 
 ### MyPage
 
-![alt text](MyPage_Modify.gif)
+![alt text](/public/readme_img/MyPage_Modify.gif)
 
 마이페이지에서 개인정보를 수정할 수 있습니다. 좋아요한 영화가 없다면, section이 사라지도록 구성하였습니다.
 
