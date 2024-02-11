@@ -64,7 +64,7 @@ const Input = styled.input`
   outline: none;
 
   &:focus {
-    background-color: gainsboro;
+    background-color: rgb(220, 220, 220);
   }
 `;
 
