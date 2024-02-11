@@ -18,7 +18,7 @@ const MovieListVariants = {
     x: -window.outerWidth - 5,
   },
 };
-const offset = 5;
+const offset = 6;
 
 const MovieItemVariants = {
   normal: {
@@ -65,7 +65,7 @@ function Home() {
     if (movies) {
       if (leaving) return;
       toggleLeaving();
-      const totalMovies = movies.length;
+      const totalMovies = movies.length - 2;
       const maxIndex = Math.ceil(totalMovies / offset) - 1;
       setIndex((prev) => (prev === maxIndex ? 0 : prev + 1));
     }
@@ -78,7 +78,7 @@ function Home() {
     navigate(`/movies/${movieId}`);
   };
   const handleClickOverlay = () => {
-    navigate("/");
+    navigate("/main");
   };
   return (
     <Wrapper>
@@ -87,7 +87,7 @@ function Home() {
         bgPhoto={makeImagePath(movies[0]?.backdrop_path) || ""}
       >
         <Title>{movies?.[0].title}</Title>
-        <OverView>{movies?.[0].overview}</OverView>
+        <OverView>{movies?.[0].overview.slice(0, 130)}</OverView>
       </Banner>
       <Slider>
         <AnimatePresence onExitComplete={toggleLeaving}>
@@ -163,11 +163,12 @@ const Banner = styled.div<{ bgPhoto: string }>`
 `;
 
 const Title = styled.h2`
-  font-size: 60px;
+  font-size: 55px;
+  font-weight: 400;
   margin-bottom: 20px;
 `;
 const OverView = styled.p`
-  font-size: 20px;
+  font-size: 18px;
   width: 50%;
 `;
 const Slider = styled.div`
@@ -176,18 +177,20 @@ const Slider = styled.div`
 `;
 const MovieList = styled(motion.div)`
   display: grid;
-  gap: 15px;
-  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  grid-template-columns: repeat(6, 1fr);
   position: absolute;
   width: 100%;
 `;
 
 const MovieItem = styled(motion.div)<{ bgPhoto: string }>`
+  width: 250px;
   background-image: url(${(props) => props.bgPhoto});
   background-size: cover;
   background-position: center center;
   height: 200px;
   cursor: pointer;
+  border-radius: 8px;
 `;
 
 const MovieInfo = styled(motion.div)`

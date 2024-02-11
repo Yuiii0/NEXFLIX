@@ -28,9 +28,16 @@ export type MovieInDetail = {
   original_language: string;
   original_title: string;
   overview: string;
+  title: string;
   popularity: number;
   poster_path: string;
   production_companies: any[];
   production_contries: any[];
   vote_average: number;
 };
+
+export interface LikedMovies {
+  Liked: boolean;
+  poster: string;
+  title: string;
+}
