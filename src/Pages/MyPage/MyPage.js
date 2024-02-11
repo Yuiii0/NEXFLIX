@@ -30,7 +30,7 @@ function MyPage() {
 
   return (
     <Form>
-      <Title>개인정보 수정</Title>
+      <Title>개인정보</Title>
       <InputContainer>
         <InputLabel htmlFor="name">이름</InputLabel>
         <Input
